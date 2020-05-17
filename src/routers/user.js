@@ -25,6 +25,9 @@ router.patch('/api/users/me', auth, userController.updateProfile)
 //add to cart
 router.patch('/api/users/addtocart', auth, userController.addToCart)
 
+//update cart
+router.patch('/api/users/cart/delete/:productid', auth, userController.deleteFromCart)
+
 //place an order
 router.patch('/api/users/placeOrder', auth, userController.placeOrder)
 
@@ -36,5 +39,8 @@ router.get('/api/users/me/orders', auth, userController.getOrders)
 
 //clear cart
 router.patch('/api/users/me/clearcart', auth, userController.clearCart)
+
+//delete user
+router.delete('/api/users/me', auth, userController.deleteUser)
 
 module.exports = router

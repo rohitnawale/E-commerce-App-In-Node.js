@@ -7,6 +7,7 @@ exports.signup = async(req, res) => {
     try{
         await user.save()
         const token = await user.generateAuthToken()
+        res.cookie('token', token)
         res.status(200).send({user, token})
     }
     catch(e){
@@ -20,6 +21,7 @@ exports.login = async(req, res) => {
     try{
         const user = await User.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateAuthToken()
+        res.cookie('token', token)
         res.send({user, token})
     }
     catch(e){
@@ -36,6 +38,7 @@ exports.logout =  async (req, res) => {
         })
         await req.user.save()
         //console.log(req.user.tokens.length)
+        res.clearCookie('token')
         res.send("You have logged out")
     }
     catch(e){
@@ -95,6 +98,17 @@ exports.addToCart = async(req, res) => {
     }
     catch(e){
         res.status(400).send(e)
+    }
+}
+
+//delete a product from cart
+exports.deleteFromCart = async(req, res) => {
+    try{
+        const product = await User.updateOne({"$pull" : {"cart" :{productid: req.params.productid}}})
+        res.status(300).send(product)
+    }
+    catch(e){
+        res.status(500).send(e)
     }
 }
 
@@ -180,5 +194,16 @@ exports.clearCart = async(req, res) => {
     }
     catch(e){
         res.status(400).send(e)
+    }
+}
+
+//delete user
+exports.deleteUser = async(req, res) => {
+    try{
+        await req.user.remove()
+        res.status(200).send(req.user)
+    }
+    catch(e){
+        res.status(500).send(e)
     }
 }
