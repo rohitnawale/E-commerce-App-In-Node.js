@@ -9,15 +9,29 @@ Technology Stack:
   
       Schemas can be found in src/models
       
+      connection details in src/db/mongoose.js
+      
       
   2.) Node.js with express.js as backend with Mongoose
   
-       More in src/ folder
+       Database models : src/models
+        
+          Two Models: User and Product
+          
+       Controllers : src/controllers
+       
+       Middleware for Auth : src/middleware/auth.js
+       
+       Routers for users and products : src/routers
+       
+       Environment Variables : config/dev.env
        
        
  Get Started with app:
  
-    Go to the root folder and run the command
+    1.) npm install
+ 
+    2.)Go to the root folder and run the command
     
       development server : npm run dev
       
