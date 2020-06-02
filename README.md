@@ -39,6 +39,10 @@ Technology Stack:
       
       production server :  npm start
       
+    4.) For running unit tests, go to root directory of project and run
+    
+          npm test
+      
       
  You can access the api using tools like Postman or any other similar tool at localhost:3000/api/
       
