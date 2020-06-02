@@ -29,9 +29,11 @@ Technology Stack:
        
  Get Started with app:
  
-    1.) npm install
+    1.) git clone https://github.com/rohitnawale/E-commerce-App-In-Node.js
  
-    2.)Go to the root folder and run the command
+    2.) npm install
+ 
+    3.)Go to the root folder and run the command
     
       development server : npm run dev
       
