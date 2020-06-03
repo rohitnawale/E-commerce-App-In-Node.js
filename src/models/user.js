@@ -74,7 +74,6 @@ const userSchema = new mongoose.Schema({
         productid:{
             type: "String",
             trim: true,
-            unique: true
         },
         items: {
             type: "Number",
@@ -87,7 +86,6 @@ const userSchema = new mongoose.Schema({
             productid:{
                 type: "String",
                 trim: true,
-                unique: true
             },
             items: {
                 type: "Number",
