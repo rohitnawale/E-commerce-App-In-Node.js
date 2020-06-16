@@ -124,7 +124,7 @@ exports.placeOrder = async(req, res) => {
             })            
         })
         await req.user.save()
-        res.status(200).send(req.user)
+        res.status(200).send(req.user['orders'][req.user['orders'].length -1])
     }
     catch(e){
         res.status(400).send(e)

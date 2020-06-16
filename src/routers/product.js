@@ -8,8 +8,14 @@ const router = new express.Router()
 //upload product
 router.post('/api/addProduct', productController.addProduct)
 
-//get products
-router.get('/api/products/:category', productController.getProducts)
+//get unique categories in a section
+router.get('/api/products/categories/:section', productController.getUniqueCategories)
+
+//get products by category
+router.get('/api/products/:section/:category', productController.getProducts)
+
+//get products by section
+router.get('/api/products/:section', productController.getAllProductsInSection)
 
 //get a product
 router.get('/api/getProduct/:productId', productController.getAProduct)

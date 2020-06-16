@@ -23,6 +23,18 @@ const productSchema = new mongoose.Schema({
         required: true
     },
 
+    imgLink: {
+        type: "String",
+        required: true,
+        trim: true
+    },
+
+    section: {
+        type: "String",
+        required: true,
+        trim: true
+    },
+
     category: {
         type: "String",
         required: true,

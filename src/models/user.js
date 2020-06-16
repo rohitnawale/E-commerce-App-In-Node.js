@@ -70,16 +70,6 @@ const userSchema = new mongoose.Schema({
 
     },
 
-    cart:[{
-        productid:{
-            type: "String",
-            trim: true,
-        },
-        items: {
-            type: "Number",
-            default:1
-        }
-    }],
 
     orders:[{
         products: [{

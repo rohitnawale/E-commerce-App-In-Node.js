@@ -13,6 +13,37 @@ exports.addProduct = async(req, res) => {
     }
 }
 
+//get unique categories in a section
+exports.getUniqueCategories = async(req, res)=>{
+    const section = (req.params.section.toString()).replace(/-/g," ")
+    console.log("wdfghn",section)
+    try{
+        const categories = await Product.find({"section":section}).distinct('category')
+        if(!categories){
+            return res.status(404).send()
+        }
+        res.send(categories)
+    }
+    catch(e){
+        res.status(500).send()
+    }
+    
+}
+
+//get all products in a section
+exports.getAllProductsInSection = async(req, res) => {
+    const section = (req.params.section.toString()).replace(/-/g," ")
+    try{
+        const products = await Product.find({section}).limit(parseInt(req.query.limit)).skip(parseInt(req.query.skip))
+        if(!products){
+            return res.status(404).send()
+        }
+        res.send(products)
+    }
+    catch(e){
+        res.status(500).send()
+    }
+}
 
 //get products
 // GET/api/products/<category>/limit=10&skip=10
