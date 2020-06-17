@@ -2,6 +2,9 @@
 
 A web-app for E-commerce online shopping
 
+## Deployed at: https://xp-ecomapp.herokuapp.com/api
+
+eg: https://xp-ecomapp.herokuapp.com/api/products/Grocery/Fruits
 
 Technology Stack:
 
